@@ -17,7 +17,7 @@ void loop() {
   vPinMax = max(vPinMax,vPin);
   tempC_min = min(tempC_min,tempC);
   tempC_max = max(tempC_max,tempC);
-  
+
   // Write to display
   display.clearDisplay();
 
