@@ -21,7 +21,7 @@ void writeDisplay(){
   display.print(",");display.print(tempC_max);
   
   display.setCursor(0, 24);
-  display.print("temp = ");display.print(tempF);
+  display.print("tempC_filtered = ");display.print(tempC_filtered);
 
   display.display();
 }
