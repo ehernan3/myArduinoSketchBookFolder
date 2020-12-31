@@ -1,2 +1,2 @@
 # myArduinoSketchBookFolders
-Sketchbook folder for Arduino experiments
+This folder contains all my Sketchbook folders.
