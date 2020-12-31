@@ -13,6 +13,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 // Vout[mV] = temperature[degC]*slope[mV] + offset[mV]
 // temp[degC] = (V[mV] - offset[mV])/10[mV]
 int TMP36=A0; // TMP36 on Analog Pin 0
+float VCC_mV = 4900;        // Actual voltage supplied to the TMP36 from the Arduino(measured with multimeter), mV
 int reading = 0;      // Variable to hold the analog reading from the TMP36, 10-bit decimal
 int readingMin = 1023;      // Variable to hold the minimum analog reading from the TMP36, 10-bit decimal
 int readingMax = 0;      // Variable to hold the maximum analog reading from the TMP36, 10-bit decimal
@@ -29,5 +30,5 @@ float slope = 0.5;        // slope of line for oscilloscope
 float intercept = 0;      // intercept of line for oscilloscope
 float verticalPosition = 32; // Vertical pixel position of oscilloscope, initialized to be off the 128x32 screen
 float horizontallPosition = 128; // Vertical pixel position of oscilloscope, initialized to be off the 128x32 screen
-int loopDelay = 1000; // Delay for the loop
+int loopDelay = 100; // Delay for the loop
 const int NSAMPLES = 15; // Number of samples for the MovingAverage class
