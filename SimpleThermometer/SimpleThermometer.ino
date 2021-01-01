@@ -20,7 +20,7 @@ int readingMax = 0;      // Variable to hold the maximum analog reading from the
 int vPin = 0;         // Variable to hold the pin voltage from the TMP35, mV
 int vPinMin = 5000;         // Variable to hold the minimum pin voltage from the TMP35, mV
 int vPinMax = 0;         // Variable to hold the maximum pin voltage from the TMP35, mV
-int tempC = 0;     // Variable to hold the temperature, degC
+float tempC = 0;     // Variable to hold the temperature, degC
 float tempC_filtered;   // Final filtered temperatire, decC;
 int tempC_min = 150;     // Variable to hold the minimum temperature, degC
 int tempC_max = -40;     // Variable to hold the maximum temperature, degC
@@ -30,5 +30,5 @@ float slope = 0.5;        // slope of line for oscilloscope
 float intercept = 0;      // intercept of line for oscilloscope
 float verticalPosition = 32; // Vertical pixel position of oscilloscope, initialized to be off the 128x32 screen
 float horizontallPosition = 128; // Vertical pixel position of oscilloscope, initialized to be off the 128x32 screen
-int loopDelay = 100; // Delay for the loop
+int loopDelay = 1000; // Delay for the loop
 const int NSAMPLES = 15; // Number of samples for the MovingAverage class

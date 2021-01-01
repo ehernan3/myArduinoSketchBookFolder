@@ -6,7 +6,7 @@ void read_temp(){
   // Then multiply by 5000 to get the voltage in mV
   vPin = (reading) * (VCC_mV/1024);
   // Subtract the offset(mV) and divide by the slope(mV) to convert into degC
-  tempC = (vPin - 500) / 10;
+  tempC = (vPin - 500) / 10.0;
   tempC_filtered = tempC_filter.Update((vPin - 500) / 10);
   // now convert to Fahrenheight
   tempF = (tempC_filtered * 9.0 / 5.0) + 32.0;
