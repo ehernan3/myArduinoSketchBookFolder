@@ -31,4 +31,11 @@ float intercept = 0;      // intercept of line for oscilloscope
 float verticalPosition = 32; // Vertical pixel position of oscilloscope, initialized to be off the 128x32 screen
 float horizontallPosition = 128; // Vertical pixel position of oscilloscope, initialized to be off the 128x32 screen
 int loopDelay = 1000; // Delay for the loop
-const int NSAMPLES = 15; // Number of samples for the MovingAverage class
+
+// Generally, you should use "unsigned long" for variables that hold time
+// The value will quickly become too large for an int to store
+unsigned long previousMillis = 0; // will store last time LED was updated
+
+// constants won't change:
+const long interval = 1000;       // interval at which to update the sensor reading(milliseconds)
+const int NSAMPLES = 10;          // Number of samples for the MovingAverage class
