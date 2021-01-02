@@ -39,3 +39,5 @@ unsigned long previousMillis = 0; // will store last time LED was updated
 // constants won't change:
 const long interval = 1000;       // interval at which to update the sensor reading(milliseconds)
 const int NSAMPLES = 10;          // Number of samples for the MovingAverage class
+// Using values of 1000 and 10 mean that the moving average consists of 10 samples, and is updated every 1 second.
+// No delay() is used in the loop() function, so the loop and sampling frequencies are decoupled.
