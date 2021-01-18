@@ -1,6 +1,8 @@
 class Temperature {
+  // These seem to be private
   const byte pin;
   float VCC_mV = 4900;// Actual voltage supplied to the TMP36 from the Arduino(measured with multimeter), mV
+  
   // Constructor
   public:
   Temperature(byte attachTo):
@@ -9,6 +11,7 @@ class Temperature {
     pin(attachTo)
     {
   }
+  
   // Methods
   void setup(){
     // Currently does nothing
