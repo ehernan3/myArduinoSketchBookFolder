@@ -1,4 +1,4 @@
-void writeDisplay(psu0){
+void writeDisplay(){
   // Write to display
   display.clearDisplay();
 
