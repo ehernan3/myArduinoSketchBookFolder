@@ -1,8 +1,10 @@
 class Temperature {
+  const byte pin;
   // Constructor
   public:
-  Temperature (int p){
-    pin = p;
+  Temperature(byte attachTo):
+    pin(attachTo)
+    {
   }
   // Methods
   void read(void){
@@ -12,5 +14,4 @@ class Temperature {
   
   // Members
   private:
-  int pin;
 };
