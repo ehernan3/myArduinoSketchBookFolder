@@ -1,4 +1,6 @@
 class MovingAverage {
+
+  // Constructor
   public:
     MovingAverage(const float InitialValue)
     {
@@ -9,7 +11,11 @@ class MovingAverage {
       }
       mean = Update(InitialValue);
     }
+    
+    // Destructor
     ~MovingAverage() {}
+
+    // Method
     float Update(const float NewValue)
     {
         // make space for new value
