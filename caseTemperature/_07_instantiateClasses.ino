@@ -1,1 +1,1 @@
-Temperature psu0;
+Temperature psu0(A0);
