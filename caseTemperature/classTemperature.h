@@ -1,12 +1,11 @@
 class Temperature {
   const byte pin;
-  int reading;
-  float vPin;
   float VCC_mV = 4900;// Actual voltage supplied to the TMP36 from the Arduino(measured with multimeter), mV
-  float tempC_current;        // Variable to hold the temperature, degC
   // Constructor
   public:
   Temperature(byte attachTo):
+    // The colon syntax allows you to initialise things inside your class that themselves have constructors
+    // which we will be doing later.
     pin(attachTo)
     {
   }
@@ -24,4 +23,8 @@ class Temperature {
   
   // Members
   private:
+  public:
+  int reading;
+  float vPin;
+  float tempC_current;
 };
