@@ -1,5 +1,6 @@
 class Temperature {
   const byte pin;
+  int reading;
   // Constructor
   public:
   Temperature(byte attachTo):
@@ -12,7 +13,7 @@ class Temperature {
   }
   void loop(){
   // Read the pin value from the temperature sensor
-  analogRead(pin);  
+  reading = analogRead(pin);  
   }
   
   // Members
