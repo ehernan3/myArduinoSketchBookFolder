@@ -7,6 +7,9 @@ class Temperature {
     {
   }
   // Methods
+  void setup(){
+    // Currently does nothing
+  }
   void read(void){
   // Read the pin value from the temperature sensor
   analogRead(pin);  
