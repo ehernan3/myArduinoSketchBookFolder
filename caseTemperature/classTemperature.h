@@ -32,6 +32,7 @@ class Temperature {
     vPin = (reading) * (VCC_mV/1024);
     // Subtract the offset(mV) and divide by the slope(mV) to convert into degC
     tempC_current = (vPin - 500) / 10.0;
+    // Update the filtered value
     tempC_filtered = filter.Update((vPin - 500) / 10.0);
     } // end of the loop
 };

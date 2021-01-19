@@ -11,6 +11,9 @@ class MovingAverage {
       mean = Update(InitialValue);
     }
 
+    // Destructor
+    ~MovingAverage() {}
+
     // Method
     float Update(const float NewValue)
     {
