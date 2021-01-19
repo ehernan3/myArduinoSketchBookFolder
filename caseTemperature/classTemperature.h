@@ -1,20 +1,20 @@
 class Temperature {
   #include "classMovingAverage.h"
   // Members
+  private:
+  const byte pin;
+  float VCC_mV;// Actual voltage supplied to the TMP36 from the Arduino(measured with multimeter), mV
+  // Generally, you should use "unsigned long" for variables that hold time
+  // The value will quickly become too large for an int to store
+  unsigned long previousMillis; // will store last time LED was updated
+  int long interval;   // interval at which to update the sensor reading(milliseconds)
+  MovingAverage filter; // Declaring a variable, filter, as an instance of the class
+  
   public:
   int reading;
   float vPin;
   float tempC_current;
   float tempC_filtered;
-    
-  private:
-  const byte pin;
-  float VCC_mV;  // Actual voltage supplied to the TMP36 from the Arduino(measured with multimeter), mV
-  MovingAverage filter; // Declaring a variable, filter, as an instance of the class
-  // Generally, you should use "unsigned long" for variables that hold time
-  // The value will quickly become too large for an int to store
-  unsigned long previousMillis; // will store last time currentMillis was updated
-  int long interval;       // interval at which to update the sensor reading(milliseconds)
     
   // Constructor
   public:
@@ -51,8 +51,9 @@ class Temperature {
     vPin = (reading) * (VCC_mV/1024);
     // Subtract the offset(mV) and divide by the slope(mV) to convert into degC
     tempC_current = (vPin - 500) / 10.0;
+    
     // Update the filtered value
-    tempC_filtered = filter.Update((vPin - 500) / 10.0);
+    //tempC_filtered = filter.Update((vPin - 500) / 10.0);
     } // end of the If statement
     } // end of the loop
 };
