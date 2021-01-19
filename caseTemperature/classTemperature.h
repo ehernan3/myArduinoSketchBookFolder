@@ -1,6 +1,14 @@
 class Temperature {
+  // Members
+  private:
   const byte pin;
-  float VCC_mV = 4900;// Actual voltage supplied to the TMP36 from the Arduino(measured with multimeter), mV
+  float VCC_mV;// Actual voltage supplied to the TMP36 from the Arduino(measured with multimeter), mV
+  
+  public:
+  int reading;
+  float vPin;
+  float tempC_current;
+  
   // Constructor
   public:
   Temperature(byte attachTo):
@@ -11,7 +19,7 @@ class Temperature {
   }
   // Methods
   void setup(){
-    // Currently does nothing
+    VCC_mV = 4900;
   }
   void loop(){
   // Read the pin value from the temperature sensor
@@ -20,11 +28,4 @@ class Temperature {
   // Subtract the offset(mV) and divide by the slope(mV) to convert into degC
   tempC_current = (vPin - 500) / 10.0;
   }
-  
-  // Members
-  private:
-  public:
-  int reading;
-  float vPin;
-  float tempC_current;
 };
