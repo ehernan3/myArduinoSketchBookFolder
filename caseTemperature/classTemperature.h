@@ -33,7 +33,7 @@ class Temperature {
   void setup(){
     VCC_mV = 4900;
     previousMillis = 0;
-    interval = 500;
+    interval = 1000;
     //avgTemp.begin();
   }
   void loop(){
