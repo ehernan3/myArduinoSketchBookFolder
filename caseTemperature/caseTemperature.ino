@@ -46,17 +46,16 @@ void writeDisplay(Temperature ps0,Temperature ps1){
   display.setTextColor(WHITE);
   
   display.setCursor(0, 0);
-  display.print("ps0.reading = ");display.print(ps0.reading);
-  
-  display.setCursor(0, 8);
-  //display.print("ps0.vPin = ");display.print(ps0.vPin);
-  
-  display.setCursor(0, 16);
   display.print("ps0.current = ");display.print(ps0.tempC_current);
   
-  display.setCursor(0, 24);
+  display.setCursor(0, 8);
   display.print("ps0.filtered = ");display.print(ps0.tempC_filtered);
-  //display.print("ps1.current = ");display.print(ps1.tempC_current);
+  
+  display.setCursor(0, 16);
+  display.print("ps1.current = ");display.print(ps1.tempC_current);
+  
+  display.setCursor(0, 24);
+  display.print("ps1.filtered = ");display.print(ps1.tempC_filtered);
   
   display.display();
 }
