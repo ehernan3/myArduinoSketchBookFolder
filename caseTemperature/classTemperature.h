@@ -47,10 +47,8 @@ class Temperature {
     previousMillis = currentMillis;
     
     // Read the pin value from the temperature sensor
-    reading = readTMP36(SENSOR_PIN);
-    vPin = (reading) * (VCC_mV/1024);
-    // Subtract the offset(mV) and divide by the slope(mV) to convert into degC
-    tempC_current = (vPin - 500) / 10.0;
+    int tC100 = readTMP36(SENSOR_PIN);  // read the sensor
+    tempC_current = tC100/100;
     
     // Update the filtered value
     //tempC_filtered = filter.Update((vPin - 500) / 10.0);
@@ -58,6 +56,7 @@ class Temperature {
     } // end of the loop
     
     long readTMP36(int muxChannel){
-      return analogRead(muxChannel);
+      long uV = (analogRead(muxChannel) * 5000000L + 512) / 1024;    //microvolts from the TMP36 sensor
+      return (uV - 500000 + 50) / 100;
       }
 };
