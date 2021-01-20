@@ -2,7 +2,7 @@ class Temperature {
   #include "classMovingAverage.h"
   // Members
   private:
-  const uint8_t pin;
+  const uint8_t SENSOR_PIN;
   float VCC_mV;// Actual voltage supplied to the TMP36 from the Arduino(measured with multimeter), mV
   // Generally, you should use "unsigned long" for variables that hold time
   // The value will quickly become too large for an int to store
@@ -21,7 +21,7 @@ class Temperature {
   Temperature(byte attachTo):
     // The colon syntax allows you to initialise things inside your class that themselves have constructors
     // which we will be doing later.
-    pin(attachTo),
+    SENSOR_PIN(attachTo),
     filter(0.0) // Initialize the filter with zeros
     {
   }
@@ -47,8 +47,7 @@ class Temperature {
     previousMillis = currentMillis;
     
     // Read the pin value from the temperature sensor
-    //reading = analogRead(pin);
-    reading = readTMP36(pin);
+    reading = readTMP36(SENSOR_PIN);
     vPin = (reading) * (VCC_mV/1024);
     // Subtract the offset(mV) and divide by the slope(mV) to convert into degC
     tempC_current = (vPin - 500) / 10.0;
@@ -58,7 +57,7 @@ class Temperature {
     } // end of the If statement
     } // end of the loop
     
-    int readTMP36(int x){
-      return analogRead(x);;
+    long readTMP36(int muxChannel){
+      return analogRead(muxChannel);
       }
 };
