@@ -1,6 +1,7 @@
+#include <movingAvg.h>                  // https://github.com/JChristensen/movingAvg
 class Temperature {
   #include "classMovingAverage.h"
-  #include <movingAvg.h>                  // https://github.com/JChristensen/movingAvg
+
   // Members
   private:
   const uint8_t SENSOR_PIN;
@@ -34,7 +35,7 @@ class Temperature {
     VCC_mV = 4900;
     previousMillis = 0;
     interval = 1000;
-    //avgTemp.begin();
+    avgTemp.begin();
   }
   void loop(){
     // Build a timer that determines when to update the sensor reading
@@ -54,6 +55,7 @@ class Temperature {
       
       // Update the filtered value
       //tempC_filtered = filter.Update((vPin - 500) / 10.0);
+      tempC_filtered = avgTemp.reading(tC100)/100;   // calculate the moving average
       } // end of the If statement
       } // end of the loop
     
