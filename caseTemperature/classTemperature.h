@@ -2,7 +2,7 @@ class Temperature {
   #include "classMovingAverage.h"
   // Members
   private:
-  const byte pin;
+  const uint8_t pin;
   float VCC_mV;// Actual voltage supplied to the TMP36 from the Arduino(measured with multimeter), mV
   // Generally, you should use "unsigned long" for variables that hold time
   // The value will quickly become too large for an int to store
