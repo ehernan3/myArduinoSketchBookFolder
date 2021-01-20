@@ -47,7 +47,8 @@ class Temperature {
     previousMillis = currentMillis;
     
     // Read the pin value from the temperature sensor
-    reading = analogRead(pin);
+    //reading = analogRead(pin);
+    reading = readTMP36(pin);
     vPin = (reading) * (VCC_mV/1024);
     // Subtract the offset(mV) and divide by the slope(mV) to convert into degC
     tempC_current = (vPin - 500) / 10.0;
@@ -56,4 +57,8 @@ class Temperature {
     //tempC_filtered = filter.Update((vPin - 500) / 10.0);
     } // end of the If statement
     } // end of the loop
+    
+    int readTMP36(int x){
+      return analogRead(x);;
+      }
 };
