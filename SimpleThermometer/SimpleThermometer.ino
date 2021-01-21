@@ -12,7 +12,8 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 // Setup TMP36, where the transfer function is:
 // Vout[mV] = temperature[degC]*slope[mV] + offset[mV]
 // temp[degC] = (V[mV] - offset[mV])/10[mV]
-int TMP36=A0; // TMP36 on Analog Pin 0
+int TMP36_1 = A0; // TMP36 on Analog Pin 0
+int TMP36_2 = A1; // TMP36 on Analog Pin 1
 float VCC_mV = 4900;        // Actual voltage supplied to the TMP36 from the Arduino(measured with multimeter), mV
 int reading = 0;      // Variable to hold the analog reading from the TMP36, 10-bit decimal
 int readingMin = 1023;      // Variable to hold the minimum analog reading from the TMP36, 10-bit decimal
@@ -21,7 +22,8 @@ int vPin = 0;         // Variable to hold the pin voltage from the TMP35, mV
 int vPinMin = 5000;         // Variable to hold the minimum pin voltage from the TMP35, mV
 int vPinMax = 0;         // Variable to hold the maximum pin voltage from the TMP35, mV
 float tempC = 0;     // Variable to hold the temperature, degC
-float tempC_filtered;   // Final filtered temperatire, decC;
+float ps0_temp;   // Final filtered temperatire, decC;
+float ps1_temp;   // Final filtered temperatire, decC;
 int tempC_min = 150;     // Variable to hold the minimum temperature, degC
 int tempC_max = -40;     // Variable to hold the maximum temperature, degC
 int tempF = 0;     // Variable to hold the temperature, degF

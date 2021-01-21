@@ -3,6 +3,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include "classTemperature.h"
+//#include "classMovingAverage.h"
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 32 // OLED display height, in pixels
@@ -31,9 +32,11 @@ Temperature ps1(A1);
 }
 void loop() {
   // put your main code here, to run repeatedly:
-  ps0.loop();
-  ps1.loop();
-  writeDisplay(ps0,ps1);
+    
+    ps0.loop();
+    ps1.loop();
+    
+    writeDisplay(ps0,ps1);
 }
 void writeDisplay(Temperature ps0,Temperature ps1){
   // Write to display
@@ -43,24 +46,16 @@ void writeDisplay(Temperature ps0,Temperature ps1){
   display.setTextColor(WHITE);
   
   display.setCursor(0, 0);
-  display.print("ps0.reading = ");display.print(ps0.reading);
-  //display.print(",");display.print(readingMin);
-  //display.print(",");display.print(readingMax);
+  display.print("ps0.current = ");display.print(ps0.tempC_current);
   
   display.setCursor(0, 8);
-  display.print("ps0.vPin = ");display.print(ps0.vPin);
-  //display.print(",");display.print(vPinMin);
-  //display.print(",");display.print(vPinMax);
+  display.print("ps0.filtered = ");display.print(ps0.tempC_filtered);
   
   display.setCursor(0, 16);
-  display.print("ps0.current = ");display.print(ps0.tempC_current);
-  //display.print("tempC_filtered = ");display.print(tempC_filtered,1);
-  //display.print(",");display.print(tempC_min);
-  //display.print(",");display.print(tempC_max);
+  display.print("ps1.current = ");display.print(ps1.tempC_current);
   
   display.setCursor(0, 24);
-  display.print("ps1.current = ");display.print(ps1.tempC_current);
-  //display.print("tempF_filtered = ");display.print(tempF_filtered,1);
-
+  display.print("ps1.filtered = ");display.print(ps1.tempC_filtered);
+  
   display.display();
 }
